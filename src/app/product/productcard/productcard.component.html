@@ -1,0 +1,49 @@
+<div class="body-content">
+    <div class="card-container" [@zoomInAnimation]=true>
+        <mat-card class="card">
+            <mat-card-actions>
+                <div class="edit-icon" *ngIf="hasAdminRole('admin')">
+                    <mat-icon (click)="onEdit(product)">edit</mat-icon>
+                </div>
+            </mat-card-actions>
+            <mat-card-header>
+                <div class="product-image">
+                    <img (click)="openImage(openImageTemplate,product.image)" mat-card-sm-image [src]="product.image" />
+                    <div class="overlay"></div>
+                </div>
+            </mat-card-header>
+
+            <mat-card-content>
+                <mat-card-title>{{product.title}}</mat-card-title>
+                <p *ngIf="!showFullContent">{{truncateOnWord(product.description,100)}}{{showFullContent?'':'...'}}</p>
+                <p *ngIf="showFullContent">{{product.description}}</p>
+                <!-- {{showFullContent ?'Show Less':'Show More'}} -->
+                <mat-icon (click)="toggleShow()">{{!showFullContent ?'expand_more':'expand_less'}}</mat-icon>
+            </mat-card-content>
+            <mat-card-content>
+                <ng-container *ngIf="product.discount">
+                    <b>Price: {{product.discount |currency}}</b>
+                    <del>{{product.price | currency}}</del>
+                </ng-container>
+                <div class="icons">
+                    <ng-container *ngIf="!product.discount">
+                        <b>Price : {{product.price | currency}}</b>
+                    </ng-container>
+                    <div class="cart-icon">
+                        <button class="btn" [class.btn-primary]="!existsInCart" [class.btn-success]="existsInCart" (click)="addToCart(product.id)"
+                            [disabled]="existsInCart">
+                            {{existsInCart?'Added to cart':'Add to cart'}}
+                            <mat-icon matTooltip="Add to cart">shopping_cart</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <ng-template #openImageTemplate>
+        <div class="modal-body">
+            <img [src]="imgLink" class="prod-img" alt="Product Image" />
+        </div>
+    </ng-template>
+</div>

@@ -1,0 +1,71 @@
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 50%;
+    position: relative;
+}
+
+
+.form-group-large {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+label,
+h3 {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.buttons {
+    border-radius: 5px;
+    padding: 10px;
+    align-content: center;
+}
+
+.buttons button {
+    padding: 10px 100px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.icons {
+    justify-content: right !important;
+}
+
+.icon {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+}
+
+.modal-body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.modal-header .button {
+    justify-content: right !important;
+}
+
+.modal-header{
+    justify-content: center;
+}

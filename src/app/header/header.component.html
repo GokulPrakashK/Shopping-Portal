@@ -1,0 +1,8 @@
+<div class="top-nav">
+    <div class="nav-tabs">
+        <a routerLink="/products" *ngIf="authService.isAuthenticated">Home</a>
+        <a routerLink="/about-us">About-us</a>
+        <a routerLink="/help">Help</a>
+        <a routerLink="/" *ngIf="authService.isAuthenticated">Logout</a>
+    </div>
+</div>

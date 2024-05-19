@@ -1,0 +1,16 @@
+.total-cost{
+    display: flex;
+    justify-content: center;
+    background-color: blanchedalmond;
+}
+
+.payment{
+    display: flex;
+    justify-content: center;
+    color: black;
+    background: blanchedalmond;
+}
+
+.payment :hover{
+    color: #000000;
+}

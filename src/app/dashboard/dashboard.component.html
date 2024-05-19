@@ -1,0 +1,23 @@
+<router-outlet></router-outlet>
+<div class="dashboard-content">
+    <h1>Welcome to our Shopping Portal</h1>
+    <p>Shop here at discount price</p>
+    <p-button label="Login to our site"  (click)="navigateToLogin()" styleClass="p-button-raised p-button-info"></p-button>
+    <p>to view more product</p>
+  </div>
+  <div class="carosal-content">
+      <p-carousel [value]="productDetails" [numVisible]="3" [circular]="true" [autoplayInterval]="2000">
+          <ng-template let-product pTemplate="item">
+              <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
+            <div class="mb-3">
+                <div class="image-cont">
+                    <img [src]="product.image" [alt]="product.name" class="carousel-image"/>
+                </div>
+            </div>
+            <div>
+                <h4 class="mb-1">{{ product.title }}</h4>
+            </div>
+        </div>
+    </ng-template>
+</p-carousel>
+</div>

@@ -1,0 +1,75 @@
+<div class="signup-form">
+    <mat-card>
+      <div class="signup-header">
+        <h2>Sign Up</h2>
+      </div>
+      <mat-card-content>
+        <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+          <div class="form-row">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>FirstName:</mat-label>
+              <input formControlName="firstName" matInput placeholder="Enter FirstName" class="input-field" />
+              <mat-error *ngIf="signUpForm.controls.firstName.invalid && signUpForm.controls.firstName.touched">
+                FirstName is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>LastName:</mat-label>
+              <input formControlName="lastName" matInput placeholder="Enter LastName" class="input-field" />
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Email:</mat-label>
+              <input formControlName="email" matInput placeholder="Enter email" class="input-field" />
+              <mat-error *ngIf="signUpForm.controls.email.invalid && signUpForm.controls.email.touched">
+                Email is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>phoneNumber</mat-label>
+              <input formControlName="phoneNumber" matInput placeholder="Enter phoneNumber" class="input-field" />
+              <mat-error *ngIf="signUpForm.controls.phoneNumber.invalid && signUpForm.controls.phoneNumber.touched && signUpForm.controls.phoneNumber.dirty">
+                Phone is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input formControlName="password" matInput type="password" required class="input-field" />
+              <mat-error *ngIf="signUpForm.controls.password.hasError('minlength') && 
+            (signUpForm.controls.password.touched || signUpForm.controls.password.dirty)">
+                Password is too short
+              </mat-error>
+              <mat-error *ngIf="signUpForm.controls.password.invalid && (!signUpForm.controls.password.dirty)">
+                Password is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Address</mat-label>
+              <input formControlName="address" matInput placeholder="Enter address" class="input-field" />
+              <mat-error *ngIf="signUpForm.controls.address.invalid && signUpForm.controls.address.touched">
+                Address is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="error-field" *ngIf="signUpForm.hasError('invalid')">
+            <mat-error>
+              Username or Password is incorrect
+            </mat-error>
+          </div>
+          <div class="signup-button">
+            <button class="form-button" mat-flat-button color="primary" [disabled]="signUpForm.invalid">Sign Up</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

@@ -1,0 +1,29 @@
+<div class="product-header">
+    <h2>Product details Card View</h2>
+</div>
+<div class="header-content">
+    <div class="header-details">
+        <div class="header">
+            <h2>Hello {{authService.curentUserName}}</h2>
+        </div>
+        <div class="cart-icon-container">
+            <div class="cart-icon">
+                <button class="btn btn-outline-dark" (click)="openCart()">Cart 
+                    <mat-icon matTooltip="Checkout to cart">shopping_cart</mat-icon>
+                </button>
+            </div>
+            <span class="cart-count">{{ cartDetails.length }}</span>
+        </div>
+    </div>
+    <p *ngIf="hasRole('user')">Discover great deals and discounts on products</p>
+</div>
+<div class="cards-container">
+    <div class="card" *ngFor="let product of data |paginate: { itemsPerPage: pageSize, currentPage: pageIndex }">
+        <app-productcard [product]="product" [productList]="cartDetails"
+            (productEmitter)="addToCart($event)"></app-productcard>
+    </div>
+    <div class="pagination">
+        <pagination-controls (pageChange)="pageIndex= $event"></pagination-controls>
+    </div>
+</div>
+<router-outlet></router-outlet>

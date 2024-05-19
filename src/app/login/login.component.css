@@ -1,0 +1,29 @@
+.login-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+}
+
+mat-card {
+  padding: 40px;
+  width: auto;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.login-header {
+  display: inherit;
+  justify-content: center;
+}
+
+.login-button {
+  width: fit-content;
+}
+
+.form-button {
+  width: 210px;
+}

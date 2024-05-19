@@ -1,0 +1,27 @@
+.top-nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    gap: 20px;
+    background-color: #2196f3;
+    border-radius: 3px;
+    box-shadow: 3px 6px #c3c3c3ce;
+  }
+  
+  .nav-tabs {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    color: white;
+  }
+
+  .nav-tabs a{
+    text-decoration: none;
+    color: white;
+  }
+  
+  .title {
+    display: block;
+  }
